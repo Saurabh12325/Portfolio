@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+
+.parent {
+  background-image: url("bg.svg");
+}
