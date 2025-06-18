@@ -7,14 +7,16 @@ import About from './components/about/About.jsx'
 import Home from './components/home/Home.jsx'
 import Techstack from './components/Tech/TechStack.jsx'
 
+
 function App() {
 
 
   return (
     <>
    <Navbar/>
-  <Home/>
-  <About/>
+   
+   <Home/>
+   <About/>
    <Techstack/>
 
     </>
