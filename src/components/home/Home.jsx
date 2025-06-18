@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import bg from "./images/bg.svg";
 import ss from "./images/ss.jpg";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faCut } from '@fortawesome/free-solid-svg-icons';
 
+import Loader from '../Loader/Loader.jsx';
 function Home() {
-   
+   const[loading, setLoading] = useState(true);
+     useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />;
+
 
     return (
         <>
