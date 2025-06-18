@@ -35,12 +35,29 @@ function Home() {
                 </div>
 
                 <div className="right hidden md:block mt-10 mb-20 z-50">
-                    <img src={ss} className='h-[500px] w-[500px] object-cover rounded-full' alt="" />
+                    <img src={ss} className='h-[500px] w-[500px] object-cover rounded-full ' alt="" />
                 </div>
-                  <div className="right md:hidden mt-10 mb-20 p-3 z-50">
-                    <img src={ss} className='h-[400px] w-[400px] object-cover rounded-[100%] border-red-400 border' alt="" />
+                <div className='flex flex-col md:hidden justify-center items-center w-full h-full'>
+                  <div className="right md:hidden  mb-28 p-3 z-50  "> "
+                    <img src={ss} className='h-[400px] w-[430px] object-cover rounded-[100%] border-red border-3 shadow-red-500 shadow-2xl ' alt="" />
+                </div>
+                  <div className=" left md:hidden z-[100] p-2 flex flex-col ">
+                    <h1 className='text-white text-3xl flex   font-bold'>
+                        Hello, I'm <span className='text-[#FF4D4D] '><br />Saurabh Srivastav</span>
+                    </h1>
+                     <p className='text-white text-lg text-center mt-4'>
+                       I'm  passionate and curious developer actively exploring full-stack development 
+                    </p>
+                   </div>
+                    <div className='flex grid grid-cols-3 gap-2'>
+                     <a href="https://www.linkedin.com/in/saurabh-srivastav-ab7712285/"> <button className='mt-6 px-6 py-2 bg-[#FF4D4D] text-white rounded-lg hover:bg-[#FF1A1A] transition duration-300'>LinkedIn</button></a>
+                        <a href="https://github.com/Saurabh12325">  <button className='mt-6 px-6 py-2 bg-[#FF4D4D] text-white rounded-lg hover:bg-[#FF1A1A] transition duration-300'>Facebook</button></a>
+                        <button className='mt-6 px-6 py-2 bg-[#FF4D4D] text-white rounded-lg hover:bg-[#FF1A1A] transition duration-300'>Github</button>
+                        
+                    </div>
                 </div>
             </div>
+          
         </>
     );
 }

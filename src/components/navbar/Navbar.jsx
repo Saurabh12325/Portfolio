@@ -3,6 +3,7 @@ import React, { use, useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCut } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
 
@@ -16,12 +17,12 @@ function Navbar() {
         ><FontAwesomeIcon icon={faBars} className="text-[#da4b4b] text-3xl" />
                     </button>
                     <div className=''>
-                 <span className='text-[#da4b4b] text-3xl absolute top-4 right-4 p-2 z-40  '>Portfolio</span>
+                 <span className='text-[#da4b4b] text-3xl absolute top-4 right-4 p-1 z-40 md:hidden font-'>Portfolio</span>
              </div>
         
                     {
                         isOpen ? (
-                            <div className=' fixed top-0 left-0  md:hidden  bg-opacity-80 z-110 flex items-center'>
+                            <div className=' fixed top-0 left-0  md:hidden  bg-opacity-80 z-110 flex items-center '>
                                 <div className='bg-[#da4b4b]  p-6 rounded-md relative flex flex-col items-center '>
                                     <button 
                                         onClick={() => setIsOpen(false)} 
@@ -31,10 +32,11 @@ function Navbar() {
                                     </button>
                                     <h2 className='text-black  text-xl font-extrabold mb-6'>My Portfolio</h2>
                                     <ul className='flex flex-col items-center gap-4 font-semibold text-white'>
-                                         <li>Home</li>
-                                        <li>About</li>
-                                        <li>Projects</li>
-                                        <li>Contact</li>
+                                     
+                                       <Link to = "/"><li>Home</li></Link>
+                                       <Link to = "/About"><li>About</li></Link>
+                                       <Link to = "/TechStack"><li>TechStack</li></Link>
+                                        
                                     </ul>
                                 </div>
                             </div>
