@@ -50,10 +50,9 @@ function Navbar() {
                      <div className=''>
                        <ul className='flex justify-center
                         items-center font-bold gap-5'>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Project</li>
-                        <li>Contact</li>
+                        <Link to = "/"><li>Home</li></Link>
+                         <Link to = "/About"><li>About</li></Link>
+                         <Link to = "/TechStack"><li>TechStack</li></Link>
                        </ul>
                      </div>
                  </div>
