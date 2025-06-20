@@ -17,7 +17,7 @@ function Navbar() {
         ><FontAwesomeIcon icon={faBars} className="text-[#da4b4b] text-3xl" />
                     </button>
                     <div className=''>
-                 <span className='text-[#da4b4b] text-3xl absolute top-4 right-4 p-1 z-40 md:hidden font-'>Portfolio</span>
+                 <span className='text-[#da4b4b] text-3xl fixed top-4 right-4 p-1 z-40 md:hidden font-'>Portfolio</span>
              </div>
         
                     {
