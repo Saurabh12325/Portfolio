@@ -13,13 +13,12 @@ function Navbar() {
         
         <button 
           onClick={() => setIsOpen(true)}
-          className='md:hidden fixed top-4 left-4 z-105 p-2 '
+          className='md:hidden absolute top-4 left-4 z-105 p-2 '
         ><FontAwesomeIcon icon={faBars} className="text-[#da4b4b] text-3xl" />
                     </button>
                     <div className=''>
-                 <span className='text-[#da4b4b] text-3xl fixed top-4 right-4 p-1 z-40 md:hidden font-'>Portfolio</span>
+                 <span className='text-[#da4b4b] text-3xl absolute top-4 right-4 p-1 z-40 md:hidden font-'>Portfolio</span>
              </div>
-        
                     {
                         isOpen ? (
                             <div className=' fixed top-0 left-0  md:hidden  bg-opacity-80 z-110 flex items-center '>
