@@ -59,17 +59,17 @@ function Home() {
                       whileInView={{ scale: [0, 1]}}
                         transition={{ duration: 2, ease: 'easeInOut' }} 
                        
-                     img src={ss} className='h-[350px] w-[350px] object-cover rounded-[100%] border-red border-3 shadow-red-500 shadow-xl ' alt="" />
+                     img src={ss} className='h-[70vw] w-[70vw] object-cover rounded-[100%] border-red border-3 shadow-red-500 shadow-xl' alt="" />
                 </div>
-                  <div className=" left md:hidden z-[100] p-2 flex flex-col  cursor-pointer ">
+                  <div className=" left md:hidden z-[100] p-2 flex flex-col cursor-pointer ">
                     <motion.h1
                         
                         whileInView={{ scale: [0, 1] }}
                         transition={{ duration: 1.5, ease: 'easeIn' }}
                           
                          
-                        className={`text-white text-3xl flex  font-bold '}`}>
-                        Hello, I'm <span className='text-[#FF4D4D] left-20'><br />Saurabh Srivastav</span>
+                        className={`text-white text-3xl flex relative justify-center  font-bold '}`}>
+                        Hello, I'm <span className='text-[#c25959] '><br />Saurabh Srivastav</span>
                     </motion.h1>
                      <p className='text-white text-lg text-center mt-9 '>
                        I'm  passionate and curious developer actively exploring full-stack development Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam asperiores accusamus perspici.
