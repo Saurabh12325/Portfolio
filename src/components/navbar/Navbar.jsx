@@ -3,7 +3,7 @@ import React, { use, useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCut } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+
 
 function Navbar() {
 
@@ -32,9 +32,9 @@ function Navbar() {
                                     <h2 className='text-black  text-xl font-extrabold mb-6'>My Portfolio</h2>
                                     <ul className='flex flex-col items-center gap-4 font-semibold text-white'>
                                      
-                                       <Link to = "/"><li>Home</li></Link>
-                                       <Link to = "/About"><li>About</li></Link>
-                                       <Link to = "/TechStack"><li>TechStack</li></Link>
+                                         <li><a href="#home">Home</a></li>
+                                         <li><a href="#about">About</a></li>
+                                         <li><a href="#techstack">TechStack</a></li>
                                         
                                     </ul>
                                 </div>
@@ -49,9 +49,9 @@ function Navbar() {
                      <div className=''>
                        <ul className='flex justify-center
                         items-center font-bold gap-5'>
-                        <Link to = "/"><li>Home</li></Link>
-                         <Link to = "/About"><li>About</li></Link>
-                         <Link to = "/TechStack"><li>TechStack</li></Link>
+                    <li><a href="#home">Home</a></li>
+                                         <li><a href="#about">About</a></li>
+                                         <li><a href="#techstack">TechStack</a></li>
                        </ul>
                      </div>
                  </div>

@@ -74,7 +74,7 @@ function Home() {
                           
                          
                         className={`text-white text-3xl flex  font-bold '}`}>
-                        Hello, I'm <span className='text-[#FF4D4D] fixed left-20'><br />Saurabh Srivastav</span>
+                        Hello, I'm <span className='text-[#FF4D4D] left-20'><br />Saurabh Srivastav</span>
                     </motion.h1>
                      <p className='text-white text-lg text-center mt-9 '>
                        I'm  passionate and curious developer actively exploring full-stack development Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam asperiores accusamus perspici.
