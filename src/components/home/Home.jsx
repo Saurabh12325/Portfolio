@@ -8,15 +8,12 @@ import git from "./images/git.png";
 import face from "./images/face.png";
 import inst from "./images/inst.png";
 
+
 function Home() {
 
     const[move, setMove] = useState(false);
    const[loading, setLoading] = useState(true);
-   useEffect(()=>{
-    setTimeout(() => {
-        setMove(true);
-    }, 100);
-   },[])
+ 
      useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
@@ -27,7 +24,7 @@ function Home() {
     return (
         <>
              
-            <div className="bg-[#1A1A1A]  w-screen h-screen gap-20 flex justify-center items-center relative">
+            <div className="bg-[#1A1A1A] w-screen h-screen gap-20 flex justify-center items-center ">
                  
                 <img src={bg} className='absolute top-4 object-cover left-0' alt="" />
                 <img src={bg} className='absolute top-4 object-cover right-0' alt="" />
@@ -54,12 +51,10 @@ function Home() {
                  
 
 
-
-
                 {/* {Responsive Section} */}
-                <div className='md:hidden'>
-                <div className='flex flex-col md:hidden justify-center items-center w-full h-full '>
-                  <div className="right md:hidden  mb-20 p-3 z-50  "> "
+                <div className='md:hidden '>
+                <div className='flex flex-col md:hidden justify-center items-center  '>
+                  <div className="right md:hidden  mb-20 p-3 z-50  "> 
                     <motion.img 
                       whileInView={{ scale: [0, 1]}}
                         transition={{ duration: 2, ease: 'easeInOut' }} 
@@ -90,6 +85,7 @@ function Home() {
                 </div>
             </div>
           </div>
+          
         </>
     );
 }
