@@ -79,10 +79,11 @@ function Home() {
                        I'm  passionate and curious developer actively exploring full-stack development Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam asperiores accusamus perspici.
                     </p>
                    </div>
-                    <div className='flex grid grid-cols-3 gap-2'>
-                     <a href="https://www.linkedin.com/in/saurabh-srivastav-ab7712285/"><img src={lin} className='mt-6 px-6 py-2 w-[70%] ' /></a>
-                        <a href="https://github.com/Saurabh12325"><img src={git} className='mt-6 px-6 py-2 w-[70%] ' alt="GitHub" /></a>
-                         <a href="https://www.facebook.com/profile.php?id=100009390527895"><img src={face} className='mt-6 px-6 py-2 w-[70%] ' alt="GitHub" /></a>
+                    <div className='flex grid grid-cols-4 gap-2'>
+                     <a href="https://www.linkedin.com/in/saurabh-srivastav-ab7712285/"><img src={lin} className='mt-6 px-6 py-2 ' /></a>
+                        <a href="https://github.com/Saurabh12325"><img src={git} className='mt-6 px-6 py-2 ' alt="GitHub" /></a>
+                         <a href="https://www.facebook.com/profile.php?id=100009390527895"><img src={face} className='mt-6 px-6 py-2  ' alt="GitHub" /></a>
+                        <a href="https://www.instagram.com/its_saurabh_srivastav55?igsh=MWpsdm9yMjF5ZDE1OA=="><img src={face} className='mt-6 px-6 py-2  ' alt="Instagram" /></a>
                         
                     </div>
                 </div>
