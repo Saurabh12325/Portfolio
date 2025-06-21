@@ -33,7 +33,7 @@ function Navbar() {
                                     <ul className='flex flex-col items-center gap-4 font-semibold text-white'>
                                      
                                          <li><a href="#home">Home</a></li>
-                                         <li><a href="#about">About</a></li>
+                                         <li><a href="#about">About Me</a></li>
                                          <li><a href="#techstack">TechStack</a></li>
                                         
                                     </ul>
@@ -42,15 +42,15 @@ function Navbar() {
                         ) : null
                     }
        
-        <nav className='w-full hidden md:block'>
-            <div className='flex item-center justify-between bg-[#1A1A1A] p-4'>
+        <nav className='w-full max-[763px]:hidden'>
+            <div className='flex item-center justify-between bg-[#1c1b1b] p-4'>
                  <div className='flex justify-evenly text-white items-center w-full'>
-                     <div className="text-white font-bold">My Portfolio</div>
-                     <div className=''>
+                     <div className="text-white text-4xl font-bold z-[50] animate-bounce">My Portfolio</div>
+                     <div className='z-[50] hover:scale-110 transition-transform duration-300 animate-bounce'>
                        <ul className='flex justify-center
-                        items-center font-bold gap-5'>
-                    <li><a href="#home">Home</a></li>
-                                         <li><a href="#about">About</a></li>
+                        items-center font-bold gap-5 text-2xl  text-red-400'>
+                                         <li><a href="#home">Home</a></li>
+                                         <li><a href="#about">About Me</a></li>
                                          <li><a href="#techstack">TechStack</a></li>
                        </ul>
                      </div>

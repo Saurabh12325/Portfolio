@@ -39,7 +39,7 @@ const [displayedText, setDisplayedText] = useState('');
              
             <div className="bg-[#1A1A1A] min-[763px]:hidden w-screen h-screen gap-20 flex justify-center items-center ">
                   
-                 <img src={bg} className='min-[763px]:hidden absolute top-4 object-cover left-0' alt="" />
+                 <img src={bg} className='min-[763px]:hidden absolute top-4 object-cover left-0 ' alt="" />
                  <img src={bg} className='min-[763px]:hidden absolute top-4 object-cover right-0 ' alt="" />
 
                 {/* {Responsive Section} */}
@@ -98,7 +98,7 @@ const [displayedText, setDisplayedText] = useState('');
                           
                          
                         className={`text-white text-3xl flex relative justify-center font-bold '}`}>
-                        Hello, I'm <span className='text-[#c25959] max-[403px]:absolute '><br />Saurabh Srivastav</span>
+                        Hello, I'm <span className='text-[#cb5151] text-5xl max-[403px]:absolute '><br />Saurabh Srivastav</span>
                     </motion.h1>
                     <motion.p
                        initial={{ opacity: 0 }}
@@ -110,16 +110,12 @@ const [displayedText, setDisplayedText] = useState('');
                          <span className="animate-pulse">|</span>
                     </motion.p>
                    </div>
-                    <div className='flex grid grid-cols-4 animate-pulse w-[60%]'>
+                    <div className='flex grid grid-cols-4 animate-bounce w-[60%]'>
                      <a href="https://www.linkedin.com/in/saurabh-srivastav-ab7712285/"><img src={lin} className='mt-6 px-6 py-2 ' /></a>
                         <a href="https://github.com/Saurabh12325"><img src={git} className='mt-6 px-6 py-2 ' alt="GitHub" /></a>
-                         <a href="https://www.facebook.com/profile.php?id=100009390527895"><img src={face} className='mt-6 px-6 py-2  ' alt="GitHub" /></a>
+                         <a href="https://www.facebook.com/profile.php?id=100009390527895"><img src={face} className='mt-6 px-6 py-2  'alt="GitHub" /></a>
                         <a href="https://www.instagram.com/its_saurabh_srivastav55?igsh=MWpsdm9yMjF5ZDE1OA=="><img src={inst} className='mt-6 px-6 py-2  ' alt="Instagram" /></a>
-                        
                     </div>
-
-                
-                
 </div>
 
                 <div className="right max-md:hidden flex justify-center  mt-10 mb-20 w-1/2 z-50">
