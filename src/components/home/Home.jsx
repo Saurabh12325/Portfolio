@@ -50,7 +50,7 @@ function Home() {
                 </div> */}
                  
 
-                 {/* <div className="left  z-[0] w-1/2">
+                 {/* <div className="left min-[1025px]:hidden  w-1/2">
                      <h1 className='text-white text-5xl font-bold'>
                         Hello, I'm <span className='text-[#FF4D4D]'>Saurabh Srivastav</span>
                     </h1>
@@ -62,7 +62,7 @@ function Home() {
                 {/* {Responsive Section} */}
                 <div className='md:hidden '>
                 <div className='flex flex-col md:hidden justify-center items-center  '>
-                  <div className="right  mb-20 p-3 z-50  md:hidden "> 
+                  <div className="right  mb-20 p-3 z-50 md:hidden  "> 
                     <motion.img 
                       whileInView={{ scale: [0, 1]}}
                         transition={{ duration: 2, ease: 'easeInOut' }} 
@@ -76,8 +76,8 @@ function Home() {
                         transition={{ duration: 1.5, ease: 'easeIn' }}
                           
                          
-                        className={`text-white text-3xl flex relative justify-center  font-bold '}`}>
-                        Hello, I'm <span className='text-[#c25959] '><br />Saurabh Srivastav</span>
+                        className={`text-white text-3xl flex relative justify-center font-bold '}`}>
+                        Hello, I'm <span className='text-[#c25959] max-[403px]:absolute '><br />Saurabh Srivastav</span>
                     </motion.h1>
                      <p className='text-white text-lg text-center mt-9 '>
                        I'm  passionate and curious developer actively exploring full-stack development Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam asperiores accusamus perspici.
