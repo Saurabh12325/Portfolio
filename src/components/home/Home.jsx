@@ -11,7 +11,20 @@ import inst from "./images/inst.png";
 
 function Home() {
 
-    const[move, setMove] = useState(false);
+  const text =  "I'm Passionate and curious JAVA full-stack developer with a love for building interactive web experiences, Skilled in React, Spring Boot, MongoDB, REST APIs, and aspiring DevOps engineer.Constantly learning, improving, and exploring new technologies and cloud tools";
+const [displayedText, setDisplayedText] = useState('');
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayedText(prev => prev + text[i]);
+      i++;
+      if (i === text.length) clearInterval(interval);
+    }, 40);
+    return () => clearInterval(interval);
+  }, []);
+
+
    const[loading, setLoading] = useState(true);
  
      useEffect(() => {
@@ -49,9 +62,15 @@ function Home() {
                         className={`text-white text-3xl flex relative justify-center font-bold '}`}>
                         Hello, I'm <span className='text-[#c25959] max-[403px]:absolute '><br />Saurabh Srivastav</span>
                     </motion.h1>
-                     <p className='text-white text-lg text-center mt-9 '>
-                       I'm  passionate and curious developer actively exploring full-stack development Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam asperiores accusamus perspici.
-                    </p>
+                     <motion.p
+                       initial={{ opacity: 0 }}
+                       animate={{ opacity: 1 }}
+                       transition={{ duration: 1 }}
+                     
+                     className='text-white text-lg text-center mt-9 '>
+                       {displayedText}
+                         <span className="animate-pulse">|</span>
+                    </motion.p>
                    </div>
                     <div className='flex grid grid-cols-4 animate-pulse w-[90%]'>
                      <a href="https://www.linkedin.com/in/saurabh-srivastav-ab7712285/"><img src={lin} className='mt-6 px-6 py-2 ' /></a>
@@ -67,8 +86,8 @@ function Home() {
           {/* Laptop section */}
           <div className="bg-[#1A1A1A] max-[763px]:hidden  w-screen h-screen gap-20 flex justify-center items-center m ">
                  
-                <img src={bg} className='  absolute top-4 object-cover left-0 animate-spin' alt="" />
-                <img src={bg} className='  absolute top-4 object-cover right-0 animate-spin' alt="" />
+                <img src={bg} className='  absolute top-4 object-cover left-0  w-[70%]' alt="" />
+                <img src={bg} className='  absolute top-4 object-cover right-0  w-[70%]' alt="" />
             <div className='left max-md:hidden z-[100] flex flex-col justify-center items-center w-1/2'>
                 
                     <div className=" left md:hidden z-[100] p-2 flex flex-col cursor-pointer ">
@@ -81,9 +100,15 @@ function Home() {
                         className={`text-white text-3xl flex relative justify-center font-bold '}`}>
                         Hello, I'm <span className='text-[#c25959] max-[403px]:absolute '><br />Saurabh Srivastav</span>
                     </motion.h1>
-                     <p className='text-white text-lg text-center mt-9 '>
-                       I'm  passionate and curious developer actively exploring full-stack development Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam asperiores accusamus perspici.
-                    </p>
+                    <motion.p
+                       initial={{ opacity: 0 }}
+                       animate={{ opacity: 1 }}
+                       transition={{ duration: 1 }}
+                     
+                     className='text-white text-lg text-center mt-9 '>
+                       {displayedText}
+                         <span className="animate-pulse">|</span>
+                    </motion.p>
                    </div>
                     <div className='flex grid grid-cols-4 animate-pulse w-[60%]'>
                      <a href="https://www.linkedin.com/in/saurabh-srivastav-ab7712285/"><img src={lin} className='mt-6 px-6 py-2 ' /></a>
@@ -97,7 +122,7 @@ function Home() {
                 
 </div>
 
-                <div className="right max-md:hidden  mt-10 mb-20 w-1/2 z-50">
+                <div className="right max-md:hidden flex justify-center  mt-10 mb-20 w-1/2 z-50">
                 <motion.img
                          whileInView={{ scale: [0, 0.90,]}}
                         transition={{ duration: 2, ease: 'easeInOut' }} 
