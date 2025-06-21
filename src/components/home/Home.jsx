@@ -67,24 +67,11 @@ function Home() {
           {/* Laptop section */}
           <div className="bg-[#1A1A1A] max-[763px]:hidden  w-screen h-screen gap-20 flex justify-center items-center m ">
                  
-                <img src={bg} className='  absolute top-4 object-cover left-0' alt="" />
-                <img src={bg} className='  absolute top-4 object-cover right-0 ' alt="" />
+                <img src={bg} className='  absolute top-4 object-cover left-0 animate-spin' alt="" />
+                <img src={bg} className='  absolute top-4 object-cover right-0 animate-spin' alt="" />
             <div className='left max-md:hidden z-[100] flex flex-col justify-center items-center w-1/2'>
-                {/* <div className="left max-md:hidden z-[100] w-1/2">
-                    <h1 className='text-white text-5xl font-bold'>
-                        Hello, I'm <span className='text-[#FF4D4D]'>Saurabh Srivastav</span>
-                    </h1>
-                    <p className='text-white text-lg text-center mt-4'>
-                        I am a passionate web developer with a knack for creating stunning and functional websites.
-                        Lorem ipsum dolor sit amet consectetur...
-                    </p>
-                    <div className='flex gap-2'>
-                        <button className='mt-6 px-6 py-2 bg-[#FF4D4D] text-white rounded-lg hover:bg-[#FF1A1A] transition duration-300'>LinkedIn</button>
-                        <button className='mt-6 px-6 py-2 bg-[#FF4D4D] text-white rounded-lg hover:bg-[#FF1A1A] transition duration-300'>GitHub</button>
-                        <button className='mt-6 px-6 py-2 bg-[#FF4D4D] text-white rounded-lg hover:bg-[#FF1A1A] transition duration-300'>Facebook</button>
-                    </div>
-                </div> */}
- <div className=" left md:hidden z-[100] p-2 flex flex-col cursor-pointer ">
+                
+                    <div className=" left md:hidden z-[100] p-2 flex flex-col cursor-pointer ">
                     <motion.h1
                         
                         whileInView={{ scale: [0, 1] }}
@@ -98,7 +85,7 @@ function Home() {
                        I'm  passionate and curious developer actively exploring full-stack development Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam asperiores accusamus perspici.
                     </p>
                    </div>
-                    <div className='flex grid grid-cols-4 animate-pulse w-[75%]'>
+                    <div className='flex grid grid-cols-4 animate-pulse w-[60%]'>
                      <a href="https://www.linkedin.com/in/saurabh-srivastav-ab7712285/"><img src={lin} className='mt-6 px-6 py-2 ' /></a>
                         <a href="https://github.com/Saurabh12325"><img src={git} className='mt-6 px-6 py-2 ' alt="GitHub" /></a>
                          <a href="https://www.facebook.com/profile.php?id=100009390527895"><img src={face} className='mt-6 px-6 py-2  ' alt="GitHub" /></a>
@@ -111,7 +98,11 @@ function Home() {
 </div>
 
                 <div className="right max-md:hidden  mt-10 mb-20 w-1/2 z-50">
-                    <img src={ss} className='h-[500px] w-[500px] object-cover rounded-full ' alt="" />
+                <motion.img
+                         whileInView={{ scale: [0, 0.90,]}}
+                        transition={{ duration: 2, ease: 'easeInOut' }} 
+                       src={ss} className={`h-[500px] w-[500px] object-cover rounded-full border-red border-3 shadow-red-500 shadow-xl `} alt="" />
+                
               </div> 
             </div>
         </>
