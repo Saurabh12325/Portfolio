@@ -27,9 +27,9 @@ function Home() {
             <div className="bg-[#1A1A1A] w-screen h-screen gap-20 flex justify-center items-center ">
                  
                 <img src={bg} className='absolute top-4 object-cover left-0' alt="" />
-                <img src={bg} className='absolute top-4 object-cover right-0' alt="" />
+                <img src={bg} className='absolute top-4 object-cover right-0 ' alt="" />
                
-               
+{/*                
                 <div className="left hidden md:block z-[100] w-1/2">
                     <h1 className='text-white text-5xl font-bold'>
                         Hello, I'm <span className='text-[#FF4D4D]'>Saurabh Srivastav</span>
@@ -47,14 +47,22 @@ function Home() {
 
                 <div className="right hidden md:block  mt-10 mb-20 w-1/2 z-50">
                     <img src={ss} className='h-[500px] w-[500px] object-cover rounded-full ' alt="" />
-                </div>
+                </div> */}
                  
+
+                 {/* <div className="left  z-[0] w-1/2">
+                     <h1 className='text-white text-5xl font-bold'>
+                        Hello, I'm <span className='text-[#FF4D4D]'>Saurabh Srivastav</span>
+                    </h1>
+                 </div> */}
+
+
 
 
                 {/* {Responsive Section} */}
                 <div className='md:hidden '>
                 <div className='flex flex-col md:hidden justify-center items-center  '>
-                  <div className="right md:hidden  mb-20 p-3 z-50  "> 
+                  <div className="right  mb-20 p-3 z-50  md:hidden "> 
                     <motion.img 
                       whileInView={{ scale: [0, 1]}}
                         transition={{ duration: 2, ease: 'easeInOut' }} 
