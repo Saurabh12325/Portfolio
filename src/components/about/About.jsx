@@ -17,7 +17,11 @@ function About() {
         </div>
         <div className="flex gap-4 max-w-8xl mt-10">
           {/* LEFT: Tech Stack */}
-          <div className="flex-1 max-w-[30%] bg-gradient-to-b from-5% via-15% to-10% m-1 rounded-2xl shadow-md shadow-red-300 p-4 flex flex-col gap-3">
+          <motion.div
+            whileInView={{ scaleX: [0, 1] }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="flex-1 max-w-[30%] bg-gradient-to-b from-5% via-15% to-10% m-1 rounded-2xl shadow-md shadow-red-300 p-4 flex flex-col gap-3"
+          >
             <h2 className="text-lg font-bold mb-2 text-red-400">
               My Tech Stack
             </h2>
@@ -26,14 +30,13 @@ function About() {
             <TechItem icon={<SiSpringboot />} title="Spring Boot" />
             <TechItem icon={<FaDocker />} title="Docker" />
             <TechItem icon={<FaTools />} title="DevOps Basics" />
-          </div>
+          </motion.div>
 
           {/* RIGHT: About Me */}
           <motion.div
             className="flex-1 max-w-[70%] bg-gradient-to-b from-5% via-5% to-3% rounded-2xl shadow-md shadow-red-300 p-6 flex flex-col justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            whileInView={{ scaleX: [0, 1] }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
           >
             <h1 className="text-2xl md:text-3xl font-bold mb-4 text-red-400">
               About Me
@@ -109,7 +112,11 @@ function About() {
         </div>
         <div className="flex flex-col gap-4 max-w-8xl mt-10">
           {/* LEFT: Tech Stack */}
-          <div className="flex-1 max-w-[100%] bg-gradient-to-b from-5% via-15% to-10% m-1 rounded-2xl shadow-md shadow-red-300 p-4 flex flex-col gap-3">
+          <motion.div
+            whileInView={{ scaleX: [0, 1] }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="flex-1 max-w-[100%] bg-gradient-to-b from-5% via-15% to-10% m-1 rounded-2xl shadow-md shadow-red-300 p-4 flex flex-col gap-3"
+          >
             <h2 className="text-lg font-bold mb-2 text-red-400">
               My Tech Stack
             </h2>
@@ -118,14 +125,12 @@ function About() {
             <TechItem icon={<SiSpringboot />} title="Spring Boot" />
             <TechItem icon={<FaDocker />} title="Docker" />
             <TechItem icon={<FaTools />} title="DevOps Basics" />
-          </div>
-
+          </motion.div>
           {/* RIGHT: About Me */}
           <motion.div
             className="flex-1 max-w-[100%] bg-gradient-to-b from-5% via-5% to-3% rounded-2xl shadow-md shadow-red-300 p-6 flex flex-col justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            whileInView={{ scaleX: [0, 1] }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
           >
             <h1 className="text-2xl md:text-3xl font-bold mb-4 text-red-400">
               About Me

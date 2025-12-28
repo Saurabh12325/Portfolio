@@ -36,8 +36,8 @@ function Home() {
         />
 
         <div className="md:hidden ">
-          <div className="flex flex-col md:hidden justify-center items-center  ">
-            <div className="right  mb-20 p-3 z-50 md:hidden  ">
+          <div className="flex flex-col md:hidden justify-center items-center ">
+            <div className="right  mb-2 p-3 z-50 md:hidden ">
               <motion.img
                 whileInView={{ scale: [0, 1] }}
                 transition={{ duration: 2, ease: "easeInOut" }}
@@ -71,7 +71,7 @@ function Home() {
               {/* Resume Button */}
               <div className="flex justify-center mt-6">
                 <a
-                  href="/path-to-your-resume.pdf"
+                  href="/SaurabhResumeoriginal.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#c25959] hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300"
