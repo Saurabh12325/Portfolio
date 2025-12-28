@@ -4,6 +4,7 @@ import About from "./components/about/About.jsx";
 import Home from "./components/home/Home.jsx";
 import Techstack from "./components/Tech/TechStack.jsx";
 import Loader from "./components/Loader/Loader.jsx";
+import Project from "./components/projects/Project.jsx";
 import { useState, useEffect } from "react";
 function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,9 @@ function App() {
           </section>
           <section id="techstack">
             <Techstack />
+          </section>
+          <section id="project">
+            <Project />
           </section>
         </>
       )}
