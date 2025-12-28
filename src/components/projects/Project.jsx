@@ -86,7 +86,7 @@ function Project() {
           viewport={{ once: true }}
           className="text-white text-5xl font-bold mb-8 text-center shadow-xl shadow-red-200"
         >
-          My Projects
+          𝓟𝓻𝓸𝓳𝓮𝓬𝓽𝓼
         </motion.h2>
       </div>
       <div className="max-w-7xl mx-auto mt-16">

@@ -107,10 +107,10 @@ function About() {
       </section>
       {/* {Mobile view} */}
       <section className="flex min-[763px]:hidden justify-center items-start bg-black/90 text-white px-4 py-12 ">
-        <div className="absolute top-[100%] text-white shadow-xl shadow-red-300">
+        <div className="absolute top-[102%] text-white shadow-xl shadow-red-300">
           <h1 className="text-center text-5xl ">𝓚𝓷𝓸𝔀 𝓶𝓸𝓻𝓮...</h1>
         </div>
-        <div className="flex flex-col gap-4 max-w-8xl mt-10">
+        <div className="flex flex-col gap-4 max-w-8xl mt-15">
           {/* LEFT: Tech Stack */}
           <motion.div
             whileInView={{ scaleX: [0, 1] }}
@@ -159,7 +159,7 @@ function About() {
               improve my skills.
             </motion.p>
 
-            <div className="flex grid grid-cols-4 animate-pulse w-[30%]">
+            <div className="flex grid grid-cols-4 animate-pulse w-[100%]">
               <a href="https://www.linkedin.com/in/saurabh-srivastav-ab7712285/">
                 <motion.img
                   src={lin}
