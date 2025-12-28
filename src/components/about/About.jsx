@@ -20,7 +20,7 @@ function About() {
           <motion.div
             whileInView={{ scaleX: [0, 1] }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="flex-1 max-w-[30%] bg-gradient-to-b from-5% via-15% to-10% m-1 rounded-2xl shadow-md shadow-red-300 p-4 flex flex-col gap-3"
+            className="flex-1 max-w-[30%] bg-gradient-to-b from-5% via-15% to-10% m-1 rounded-2xl  shadow-lg hover:shadow-2xl transition-shadow duration-300  shadow-red-300 p-4 flex flex-col gap-3"
           >
             <h2 className="text-lg font-bold mb-2 text-red-400">
               My Tech Stack
@@ -34,7 +34,7 @@ function About() {
 
           {/* RIGHT: About Me */}
           <motion.div
-            className="flex-1 max-w-[70%] bg-gradient-to-b from-5% via-5% to-3% rounded-2xl shadow-md shadow-red-300 p-6 flex flex-col justify-center"
+            className="flex-1 max-w-[70%] bg-gradient-to-b from-5% via-5% to-3% rounded-2xl  shadow-lg hover:shadow-2xl transition-shadow duration-300  shadow-red-300 p-6 flex flex-col justify-center"
             whileInView={{ scaleX: [0, 1] }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
@@ -115,7 +115,7 @@ function About() {
           <motion.div
             whileInView={{ scaleX: [0, 1] }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="flex-1 max-w-[100%] bg-gradient-to-b from-5% via-15% to-10% m-1 rounded-2xl shadow-md shadow-red-300 p-4 flex flex-col gap-3"
+            className="flex-1 max-w-[100%] bg-gradient-to-b from-5% via-15% to-10% m-1 rounded-2xl  shadow-lg hover:shadow-2xl transition-shadow duration-300  shadow-red-300 p-4 flex flex-col gap-3"
           >
             <h2 className="text-lg font-bold mb-2 text-red-400">
               My Tech Stack
@@ -128,9 +128,9 @@ function About() {
           </motion.div>
           {/* RIGHT: About Me */}
           <motion.div
-            className="flex-1 max-w-[100%] bg-gradient-to-b from-5% via-5% to-3% rounded-2xl shadow-md shadow-red-300 p-6 flex flex-col justify-center"
+            className="flex-1 max-w-[100%] bg-gradient-to-b from-5% via-5% to-3% rounded-2xl  shadow-lg hover:shadow-2xl transition-shadow duration-300  shadow-red-300 p-6 flex flex-col justify-center"
             whileInView={{ scaleX: [0, 1] }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
           >
             <h1 className="text-2xl md:text-3xl font-bold mb-4 text-red-400">
               About Me

@@ -77,19 +77,19 @@ const ImageSlider = ({ images }) => {
 
 function Project() {
   return (
-    <section className="bg-black/90 text-white py-20 px-6">
+    <section className="bg-black/90 text-white py-8 px-6">
       <div className=" flex flex-col justify-center items-center p-6">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-white text-5xl font-bold mb-8 text-center shadow-xl shadow-red-200"
+          className="text-white text-5xl font-bold mb-4 text-center shadow-xl shadow-red-200"
         >
           𝓟𝓻𝓸𝓳𝓮𝓬𝓽𝓼
         </motion.h2>
       </div>
-      <div className="max-w-7xl mx-auto mt-16">
+      <div className="max-w-7xl mx-auto mt:12 sm:mt-16">
         {/* Projects Grid */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-2">
           {projects.map((project, index) => (
@@ -100,7 +100,7 @@ function Project() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={index}
-              className="bg-black/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="bg-black/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300  shadow-red-200"
             >
               {/* Image Slider */}
               <ImageSlider images={project.images} />

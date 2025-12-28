@@ -15,7 +15,7 @@ function Navbar() {
       </button>
       <div className="">
         <span className="text-[#da4b4b] text-3xl absolute top-4 right-4 p-1 z-40 md:hidden font-">
-          Portfolio
+          𝓟𝓸𝓻𝓽𝓯𝓸𝓵𝓲𝓸
         </span>
       </div>
       {isOpen ? (
@@ -41,7 +41,10 @@ function Navbar() {
                 <a href="#about">About Me</a>
               </li>
               <li>
-                <a href="#techstack">TechStk</a>
+                <a href="#techstack">TechStack</a>
+              </li>
+              <li>
+                <a href="#project">Projects</a>
               </li>
             </ul>
           </div>
@@ -50,7 +53,7 @@ function Navbar() {
 
       <nav className="w-full max-[763px]:hidden">
         <div className="flex item-center justify-between bg-[#1c1b1b] p-4">
-          <div className="flex justify-evenly text-white items-center w-full mt-1">
+          <div className="flex justify-around text-white items-center w-full mt-1">
             <div className="text-white text-5xl font-bold z-[50] animate-bounce">
               ꧁☬𝓟𝓸𝓻𝓽𝓯𝓸𝓵𝓲𝓸☬꧂
             </div>
