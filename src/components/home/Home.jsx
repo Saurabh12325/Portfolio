@@ -52,7 +52,7 @@ function Home() {
                 transition={{ duration: 1.5, ease: "easeIn" }}
                 className={`text-white text-3xl flex relative justify-center font-bold '}`}
               >
-                Hello, I'm{" "}
+                <span className="text-4xl">𝓗𝓲,</span> I'm{" "}
                 <span className="text-[#c25959] max-[403px]:absolute ">
                   <br />
                   Saurabh Srivastav
@@ -119,7 +119,7 @@ function Home() {
               transition={{ duration: 1.5, ease: "easeIn" }}
               className={`text-white text-3xl flex relative justify-center font-bold '}`}
             >
-              Hello, I'm{" "}
+              <span className="text-7xl">𝓗𝓲</span>, I'm{" "}
               <span className="text-[#cb5151] text-5xl max-[403px]:absolute ">
                 <br />
                 Saurabh Srivastav

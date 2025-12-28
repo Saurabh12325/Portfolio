@@ -31,7 +31,7 @@ function Navbar() {
               />
             </button>
             <h2 className="text-black  text-xl font-extrabold mb-6">
-              My Portfolio
+              𝓟𝓸𝓻𝓽𝓯𝓸𝓵𝓲𝓸
             </h2>
             <ul className="flex flex-col items-center gap-4 font-semibold text-white">
               <li>
@@ -41,7 +41,7 @@ function Navbar() {
                 <a href="#about">About Me</a>
               </li>
               <li>
-                <a href="#techstack">TechStack</a>
+                <a href="#techstack">TechStk</a>
               </li>
             </ul>
           </div>
@@ -50,9 +50,9 @@ function Navbar() {
 
       <nav className="w-full max-[763px]:hidden">
         <div className="flex item-center justify-between bg-[#1c1b1b] p-4">
-          <div className="flex justify-evenly text-white items-center w-full">
-            <div className="text-white text-4xl font-bold z-[50] animate-bounce">
-              My Portfolio
+          <div className="flex justify-evenly text-white items-center w-full mt-1">
+            <div className="text-white text-5xl font-bold z-[50] animate-bounce">
+              ꧁☬𝓟𝓸𝓻𝓽𝓯𝓸𝓵𝓲𝓸☬꧂
             </div>
             <div className="z-[50] hover:scale-110 transition-transform duration-300 animate-bounce">
               <ul
@@ -60,13 +60,13 @@ function Navbar() {
                         items-center font-bold gap-5 text-2xl  text-red-400"
               >
                 <li>
-                  <a href="#home">Home</a>
+                  <a href="#home">𝓗𝓸𝓶𝓮</a>
                 </li>
                 <li>
-                  <a href="#about">About Me</a>
+                  <a href="#about">𝓐𝓫𝓸𝓾𝓽 𝓜𝓮</a>
                 </li>
                 <li>
-                  <a href="#techstack">TechStack</a>
+                  <a href="#techstack">𝓣𝓮𝓬𝓱𝓼𝓽𝓪𝓬𝓴</a>
                 </li>
               </ul>
             </div>

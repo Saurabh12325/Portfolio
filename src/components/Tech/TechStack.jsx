@@ -62,8 +62,8 @@ const techIcons = [
 const TechStack = () => {
   return (
     <div className="bg-black/90 flex flex-col justify-center items-center p-6">
-      <h2 className="text-white text-4xl font-bold mb-8 text-center">
-        My TechStack
+      <h2 className="text-white text-5xl font-bold mb-8 text-center shadow-xl shadow-red-200">
+        𝓣𝓮𝓬𝓱𝓢𝓽𝓪𝓬𝓴
       </h2>
       <div className=" rounded-lg p-6 sm:p-8 shadow-lg w-full overflow-hidden">
         {/* Motion container for infinite X-axis scroll */}
