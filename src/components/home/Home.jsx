@@ -138,7 +138,7 @@ function Home() {
             {/* Resume Button */}
             <div className="flex justify-center mt-6">
               <a
-                href="/path-to-your-resume.pdf"
+                href="/SaurabhResumeoriginal.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#cb5151] hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300"
