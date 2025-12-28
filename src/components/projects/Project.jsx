@@ -50,12 +50,12 @@ const ImageSlider = ({ images }) => {
       <motion.div
         className="flex h-full"
         style={{ width: `${images.length * 100}%` }}
-        whileHover={
+        whileInView={
           images.length > 1
             ? { x: `-${(images.length - 1) * (100 / images.length)}%` }
             : {}
         }
-        transition={{ duration: 0.8, ease: "easeInOut" }}
+        transition={{ duration: 2, ease: "easeInOut", delay: 1 }}
       >
         {images.map((img, index) => (
           <div
