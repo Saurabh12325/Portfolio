@@ -34,7 +34,7 @@ function Navbar() {
         </span>
 
         {/* Desktop Links */}
-        <ul className="max-md:hidden flex gap-8 text-gray-300 font-medium text-sm">
+        <ul className="flex max-lg:hidden gap-8 text-gray-300 font-medium text-sm">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -51,7 +51,7 @@ function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen((o) => !o)}
-          className="md:hidden text-[#cb5151] text-xl p-1"
+          className="lg:hidden text-[#cb5151] text-xl p-1"
           aria-label="Toggle menu"
         >
           <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
@@ -66,7 +66,7 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-[#1a1a1a]/95 backdrop-blur-md border-t border-white/5 px-6 py-4"
+            className="lg:hidden bg-[#1a1a1a]/95 backdrop-blur-md border-t border-white/5 px-6 py-4"
           >
             <ul className="flex flex-col gap-4 text-gray-300 font-medium text-sm">
               {navLinks.map((link) => (
