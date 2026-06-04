@@ -18,77 +18,77 @@ import {
 } from "react-icons/si";
 
 const techIcons = [
-  <FaJava key="java" className="text-[#f89820]" title="Java" />,
-  <SiJavascript
-    key="javascript"
-    className="text-[#f0db4f]"
-    title="JavaScript"
-  />,
-  <SiC key="c" className="text-blue-400" title="C" />,
-  <SiHtml5 key="html5" className="text-[#e34c26]" title="HTML5" />,
-  <SiCss3 key="css3" className="text-[#264de4]" title="CSS3" />,
-  <SiTailwindcss
-    key="tailwind"
-    className="text-[#38bdf8]"
-    title="Tailwind CSS"
-  />,
-  <FaReact key="react" className="text-[#61DBFB]" title="React" />,
-  <SiVite key="vite" className="text-purple-400" title="Vite" />,
-  <FaNodeJs key="nodejs" className="text-[#68A063]" title="Node.js" />,
-  <SiSpringboot
-    key="springboot"
-    className="text-[#6DB33F]"
-    title="Spring Boot"
-  />,
-  <SiPostgresql
-    key="postgresql"
-    className="text-[#336791]"
-    title="PostgreSQL"
-  />,
-  <SiMysql key="mysql" className="text-[#00758F]" title="MySQL" />,
-  <SiMongodb key="mongodb" className="text-[#47A248]" title="MongoDB" />,
-  <FaDocker key="docker" className="text-[#0db7ed]" title="Docker" />,
-  <FaReact key="mern" className="text-[#61DBFB]" title="MERN Stack" />,
-  <SiIntellijidea
-    key="intellij"
-    className="text-[#000000]"
-    title="IntelliJ IDEA"
-  />,
-  <SiVercel key="vercel" className="text-white" title="Vercel" />,
-  <SiRender key="render" className="text-[#46E3B7]" title="Render" />,
-  <FaAws key="aws" className="text-[#FF9900]" title="AWS" />,
+  { icon: <FaJava className="text-[#f89820]" />, label: "Java" },
+  { icon: <SiJavascript className="text-[#f0db4f]" />, label: "JavaScript" },
+  { icon: <SiC className="text-blue-400" />, label: "C" },
+  { icon: <SiHtml5 className="text-[#e34c26]" />, label: "HTML5" },
+  { icon: <SiCss3 className="text-[#264de4]" />, label: "CSS3" },
+  { icon: <SiTailwindcss className="text-[#38bdf8]" />, label: "Tailwind" },
+  { icon: <FaReact className="text-[#61DBFB]" />, label: "React" },
+  { icon: <SiVite className="text-purple-400" />, label: "Vite" },
+  { icon: <FaNodeJs className="text-[#68A063]" />, label: "Node.js" },
+  { icon: <SiSpringboot className="text-[#6DB33F]" />, label: "Spring Boot" },
+  { icon: <SiPostgresql className="text-[#336791]" />, label: "PostgreSQL" },
+  { icon: <SiMysql className="text-[#00758F]" />, label: "MySQL" },
+  { icon: <SiMongodb className="text-[#47A248]" />, label: "MongoDB" },
+  { icon: <FaDocker className="text-[#0db7ed]" />, label: "Docker" },
+  { icon: <SiIntellijidea className="text-white" />, label: "IntelliJ" },
+  { icon: <SiVercel className="text-white" />, label: "Vercel" },
+  { icon: <SiRender className="text-[#46E3B7]" />, label: "Render" },
+  { icon: <FaAws className="text-[#FF9900]" />, label: "AWS" },
 ];
 
 const TechStack = () => {
+  const doubled = [...techIcons, ...techIcons];
+
   return (
-    <div className="bg-black/90 flex flex-col justify-center items-center p-6">
-      <h2 className="text-white text-5xl font-bold mb-8 text-center shadow-xl shadow-red-200">
-        𝓣𝓮𝓬𝓱𝓢𝓽𝓪𝓬𝓴
-      </h2>
-      <div className=" rounded-lg p-6 sm:p-8 shadow-lg w-full overflow-hidden">
-        {/* Motion container for infinite X-axis scroll */}
+    <section className="bg-[#0f0f0f] py-20 px-6 overflow-hidden">
+      <div className="max-w-6xl mx-auto mb-12">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-bold text-center text-white"
+        >
+          Tech <span className="text-[#cb5151]">Stack</span>
+        </motion.h2>
+        <p className="text-gray-500 text-sm text-center mt-3">
+          Tools and technologies I work with
+        </p>
+      </div>
+
+      <div className="relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#0f0f0f] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#0f0f0f] to-transparent z-10 pointer-events-none" />
+
         <motion.div
-          className="flex gap-8"
-          animate={{ x: ["0%", "-100%"] }}
+          className="flex gap-10"
+          animate={{ x: ["0%", "-50%"] }}
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 20,
+            duration: 25,
             ease: "linear",
           }}
         >
-          {techIcons.concat(techIcons).map((icon, index) => (
+          {doubled.map(({ icon, label }, index) => (
             <div
               key={index}
-              className="text-5xl sm:text-4xl md:text-5xl text-white flex justify-center cursor-pointer"
-              title={icon.props.title}
+              className="flex flex-col items-center gap-2 flex-shrink-0 group"
             >
-              {icon}
+              <div className="text-4xl md:text-5xl transition-transform duration-200 group-hover:scale-110">
+                {icon}
+              </div>
+              <span className="text-gray-600 text-xs group-hover:text-gray-400 transition-colors">
+                {label}
+              </span>
             </div>
           ))}
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

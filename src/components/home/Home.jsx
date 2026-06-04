@@ -1,181 +1,209 @@
-import React, { useState, useEffect } from "react";
-import bg from "./images/bg.svg";
-import ss from "./images/ss.jpg";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import { FiMail, FiPhone } from "react-icons/fi"; // Import icons from react-icons
+import ss from "./images/ss.jpg";
+import { FiMail, FiPhone } from "react-icons/fi";
+
+const fullText =
+  "Passionate full-stack developer skilled in React,Node.js, Spring Boot, MongoDB, and REST APIs. Aspiring DevOps engineer constantly exploring new technologies and cloud tools.";
+
+const NUM_STARS = 160;
+const NUM_SHOOTING = 5;
+
+function rand(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function StarField() {
+  const stars = useMemo(() =>
+    Array.from({ length: NUM_STARS }, (_, i) => ({
+      id: i,
+      x: rand(0, 100),
+      y: rand(0, 100),
+      r: rand(0.6, 2),
+      delay: rand(0, 4),
+      duration: rand(2.5, 5),
+    })), []);
+
+  const shootingStars = useMemo(() =>
+    Array.from({ length: NUM_SHOOTING }, (_, i) => ({
+      id: i,
+      startX: rand(10, 70),
+      startY: rand(5, 40),
+      delay: i * 3.2 + rand(0, 2),
+    })), []);
+
+  return (
+    <svg
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ zIndex: 0 }}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {stars.map((s) => (
+        <motion.circle
+          key={s.id}
+          cx={`${s.x}%`}
+          cy={`${s.y}%`}
+          r={s.r}
+          fill="white"
+          initial={{ opacity: 0.15 }}
+          animate={{ opacity: [0.15, 0.9, 0.15] }}
+          transition={{
+            duration: s.duration,
+            delay: s.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+
+      {shootingStars.map((s) => (
+        <motion.line
+          key={`sh-${s.id}`}
+          x1={`${s.startX}%`}
+          y1={`${s.startY}%`}
+          x2={`${s.startX + 12}%`}
+          y2={`${s.startY + 6}%`}
+          stroke="white"
+          strokeWidth="1.2"
+          strokeLinecap="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{
+            pathLength: [0, 1, 0],
+            opacity: [0, 0.9, 0],
+            x1: [`${s.startX}%`, `${s.startX + 20}%`],
+            y1: [`${s.startY}%`, `${s.startY + 10}%`],
+            x2: [`${s.startX + 12}%`, `${s.startX + 32}%`],
+            y2: [`${s.startY + 6}%`, `${s.startY + 16}%`],
+          }}
+          transition={{
+            duration: 1.1,
+            delay: s.delay,
+            repeat: Infinity,
+            repeatDelay: 7 + rand(0, 5),
+            ease: "easeIn",
+          }}
+        />
+      ))}
+    </svg>
+  );
+}
 
 function Home() {
-  const text =
-    "I'm Passionate and curious JAVA full-stack developer with a love for building interactive web experiences, Skilled in React, Spring Boot, MongoDB, REST APIs, and aspiring DevOps engineer.Constantly learning, improving, and exploring new technologies and cloud tools";
-
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
-      setDisplayedText((prev) => prev + text[i]);
+      setDisplayedText((prev) => prev + fullText[i]);
       i++;
-      if (i === text.length) clearInterval(interval);
-    }, 40);
+      if (i === fullText.length) clearInterval(interval);
+    }, 30);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <>
-      {/* Mobile Section */}
-      <div className="bg-[#1A1A1A] min-[763px]:hidden w-screen h-screen gap-20 flex justify-center items-center ">
-        <img
-          src={bg}
-          className="min-[763px]:hidden absolute top-4 object-cover left-0 "
-          alt=""
-        />
-        <img
-          src={bg}
-          className="min-[763px]:hidden absolute top-4 object-cover right-0 "
-          alt=""
-        />
+    <div className="relative bg-[#0f0f0f] min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Starfield */}
+      <StarField />
 
-        <div className="md:hidden ">
-          <div className="flex flex-col md:hidden justify-center items-center ">
-            <div className="right  mb-2 p-3 z-50 md:hidden ">
-              <motion.img
-                whileInView={{ scale: [0, 1] }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-                src={ss}
-                className="h-[70vw] w-[70vw] object-cover rounded-[100%] border-red border-3 shadow-red-500 shadow-xl"
-                alt=""
-              />
-            </div>
-            <div className=" left md:hidden z-[100] p-2 flex flex-col cursor-pointer ">
-              <motion.h1
-                whileInView={{ scale: [0, 1] }}
-                transition={{ duration: 1.5, ease: "easeIn" }}
-                className={`text-white text-3xl flex relative justify-center font-bold '}`}
-              >
-                <span className="text-4xl">𝓗𝓲,</span> I'm{" "}
-                <span className="text-[#c25959] max-[403px]:absolute ">
-                  <br />
-                  Saurabh Srivastav
-                </span>
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                className="text-white text-lg text-center mt-9 "
-              >
-                {displayedText}
-                <span className="animate-pulse">|</span>
-              </motion.p>
+      {/* Ambient blobs */}
+      <div className="absolute top-0 left-0 w-80 h-80 bg-[#cb5151]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#cb5151]/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-              {/* Resume Button */}
-              <div className="flex justify-center mt-6">
-                <a
-                  href="/SaurabhResumeoriginal.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#c25959] hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300"
-                >
-                  Download Resume
-                </a>
-              </div>
+      <div className="relative z-10 max-w-6xl w-full mx-auto px-6 pt-28 pb-16 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+        {/* Text */}
+        <div className="flex-1 text-center md:text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-[#cb5151] text-sm font-semibold uppercase tracking-widest mb-3"
+          >
+            Full Stack Developer
+          </motion.p>
 
-              {/* Contact Info */}
-              <div className="flex flex-col items-center gap-3 mt-4 text-white text-lg">
-                <a
-                  href="mailto:your-email@example.com"
-                  className="flex items-center gap-2 hover:text-[#c25959] transition-colors"
-                >
-                  <FiMail size={20} className="mr-2" /> saurabhsri.mau@gmail.com
-                </a>
-                <a
-                  href="tel:+911234567890"
-                  className="flex items-center gap-2 hover:text-[#c25959] transition-colors"
-                >
-                  <FiPhone size={20} /> +91 6306255916
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
+          >
+            Hi, I'm <span className="text-[#cb5151]">Saurabh</span>
+            <br />
+            <span className="text-[#cb5151]">Srivastav</span>
+          </motion.h1>
 
-      {/* Laptop Section */}
-      <div className="bg-[#1A1A1A] max-[763px]:hidden  w-screen h-screen gap-20 flex justify-center items-center m ">
-        <img
-          src={bg}
-          className="absolute top-4 object-cover left-0 w-[70%]"
-          alt=""
-        />
-        <img
-          src={bg}
-          className="absolute top-4 object-cover right-0 w-[70%]"
-          alt=""
-        />
-        <div className="left max-md:hidden z-[100] flex flex-col justify-center items-center w-1/2">
-          <div className=" left md:hidden z-[100] p-2 flex flex-col cursor-pointer ">
-            <motion.h1
-              whileInView={{ scale: [0, 1] }}
-              transition={{ duration: 1.5, ease: "easeIn" }}
-              className={`text-white text-3xl flex relative justify-center font-bold '}`}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="text-gray-400 text-sm sm:text-base mt-6 max-w-xl mx-auto md:mx-0 leading-relaxed min-h-[72px]"
+          >
+            {displayedText}
+            <span className="text-[#cb5151] animate-pulse">|</span>
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.9 }}
+            className="flex flex-col sm:flex-row gap-3 mt-8 justify-center md:justify-start"
+          >
+            <a
+              href="/SaurabhResumeoriginal.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#cb5151] hover:bg-[#a83e3e] text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#cb5151]/30 text-sm"
             >
-              <span className="text-7xl">𝓗𝓲</span>, I'm{" "}
-              <span className="text-[#cb5151] text-5xl max-[403px]:absolute ">
-                <br />
-                Saurabh Srivastav
-              </span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="text-white text-lg text-center mt-9 "
+              Download Resume
+            </a>
+            <a
+              href="#about"
+              className="border border-white/15 hover:border-[#cb5151]/60 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:bg-[#cb5151]/10 text-sm"
             >
-              {displayedText}
-              <span className="animate-pulse">|</span>
-            </motion.p>
+              Know More
+            </a>
+          </motion.div>
 
-            {/* Resume Button */}
-            <div className="flex justify-center mt-6">
-              <a
-                href="/SaurabhResumeoriginal.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#cb5151] hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-300"
-              >
-                Download Resume
-              </a>
-            </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="flex flex-col sm:flex-row gap-4 mt-6 text-gray-500 text-xs justify-center md:justify-start"
+          >
+            <a
+              href="mailto:saurabhsri.mau@gmail.com"
+              className="flex items-center gap-2 hover:text-[#cb5151] transition-colors"
+            >
+              <FiMail size={14} /> saurabhsri.mau@gmail.com
+            </a>
+            <a
+              href="tel:+916306255916"
+              className="flex items-center gap-2 hover:text-[#cb5151] transition-colors"
+            >
+              <FiPhone size={14} /> +91 6306255916
+            </a>
+          </motion.div>
+        </div>
 
-            {/* Contact Info */}
-            <div className="flex flex-col items-center gap-3 mt-4 text-white text-lg">
-              <a
-                href="mailto:saurabhsri.mau@gmail.com"
-                className="flex hover:text-[#cb5151] transition-colors"
-              >
-                <FiMail size={20} className="mr-2" /> saurabhsri.mau@gmail.com
-              </a>
-              <a
-                href="tel:+6306255916"
-                className="flex items-center gap-2 hover:text-[#cb5151] transition-colors"
-              >
-                <FiPhone size={20} /> +91 6306255916
-              </a>
-            </div>
+        {/* Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="flex-shrink-0"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 rounded-full bg-[#cb5151]/20 blur-2xl scale-110 pointer-events-none" />
+            <img
+              src={ss}
+              alt="Saurabh Srivastav"
+              className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-full border-2 border-[#cb5151]/40 shadow-2xl shadow-[#cb5151]/20"
+            />
           </div>
-        </div>
-
-        <div className="right max-md:hidden flex justify-center mt-10 mb-20 w-1/2 z-50">
-          <motion.img
-            whileInView={{ scale: [0, 0.9] }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-            src={ss}
-            className={`h-[500px] w-[500px] object-cover rounded-full border-red border-3 shadow-red-500 shadow-xl `}
-            alt=""
-          />
-        </div>
+        </motion.div>
       </div>
-    </>
+    </div>
   );
 }
 

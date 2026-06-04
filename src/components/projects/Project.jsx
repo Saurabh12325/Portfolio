@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// Quizaki Images (LOCAL)
 import quiz1 from "./quizaki.png";
 import quiz2 from "./si.png";
 import finance1 from "./fi.png";
@@ -13,40 +12,29 @@ const projects = [
     id: 1,
     title: "My Finance Website",
     description:
-      "A modern finance website built with React, Tailwind CSS, and Framer Motion.",
-    images: [finance1, finance2, finance3], // no images → slider will not render
+      "A modern finance website built with React, Tailwind CSS, and Framer Motion. Features interactive charts and a clean dashboard UI.",
+    images: [finance1, finance2, finance3],
     live: "https://my-finance-website-g1sx.vercel.app/",
     github: "https://github.com/Saurabh12325/Myfinance",
+    tags: ["React", "Tailwind", "Framer Motion"],
   },
   {
     id: 2,
-    title: "Quizaki Website Backend",
+    title: "Quizaki Website",
     description:
-      "Backend & frontend project with clean UI and scalable architecture.",
+      "Full-stack quiz platform with clean UI, scalable backend architecture, real-time scoring, and user authentication.",
     images: [quiz1, quiz2],
     live: "https://quizaki.vercel.app/",
     github: "https://github.com/Saurabh12325/quizaki",
+    tags: ["React", "Node.js", "MongoDB"],
   },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: (index) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      delay: index * 0.2,
-    },
-  }),
-};
-
 const ImageSlider = ({ images }) => {
-  // Safety check
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="relative w-full h-56 overflow-hidden">
+    <div className="relative w-full h-52 overflow-hidden bg-black">
       <motion.div
         className="flex h-full"
         style={{ width: `${images.length * 100}%` }}
@@ -55,17 +43,17 @@ const ImageSlider = ({ images }) => {
             ? { x: `-${(images.length - 1) * (100 / images.length)}%` }
             : {}
         }
-        transition={{ duration: 2, ease: "easeInOut", delay: 1 }}
+        transition={{ duration: 2.5, ease: "easeInOut", delay: 0.8 }}
       >
-        {images.map((img, index) => (
+        {images.map((img, i) => (
           <div
-            key={index}
+            key={i}
             className="h-full"
             style={{ width: `${100 / images.length}%` }}
           >
             <img
               src={img}
-              alt={`project-${index}`}
+              alt={`project-${i}`}
               className="w-full h-full object-cover"
             />
           </div>
@@ -77,58 +65,71 @@ const ImageSlider = ({ images }) => {
 
 function Project() {
   return (
-    <section className="bg-black/90 text-white py-8 px-6">
-      <div className=" flex flex-col justify-center items-center p-6">
+    <section className="bg-[#111111] text-white py-20 px-6">
+      <div className="max-w-6xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-white text-5xl font-bold mb-4 text-center shadow-xl shadow-red-200"
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-bold text-center mb-4"
         >
-          𝓟𝓻𝓸𝓳𝓮𝓬𝓽𝓼
+          My <span className="text-[#cb5151]">Projects</span>
         </motion.h2>
-      </div>
-      <div className="max-w-7xl mx-auto mt:12 sm:mt-16">
-        {/* Projects Grid */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-2">
+        <p className="text-gray-500 text-sm text-center mb-16">
+          A selection of things I've built
+        </p>
+
+        <div className="grid gap-8 sm:grid-cols-2">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              custom={index}
-              className="bg-black/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300  shadow-red-200"
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="bg-[#1a1a1a] rounded-2xl overflow-hidden border border-white/5 shadow-lg shadow-black/40 hover:border-[#cb5151]/30 transition-all duration-300 hover:shadow-[#cb5151]/10 hover:shadow-xl group"
             >
               {/* Image Slider */}
-              <ImageSlider images={project.images} />
+              <div className="overflow-hidden">
+                <ImageSlider images={project.images} />
+              </div>
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-[#cb5151]/15 text-[#cb5151] px-2 py-0.5 rounded-full font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                <h3 className="text-lg font-semibold mb-2 group-hover:text-[#cb5151] transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="text-gray-500 text-sm leading-relaxed mb-6">
                   {project.description}
                 </p>
 
-                {/* Links */}
-                <div className="flex gap-4">
+                <div className="flex gap-3">
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 text-sm rounded-lg bg-white text-black font-medium hover:bg-gray-200 transition"
+                    className="px-4 py-2 text-sm rounded-lg bg-[#cb5151] text-white font-medium hover:bg-[#a83e3e] transition-colors"
                   >
                     Live Demo
                   </a>
-
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 text-sm rounded-lg border border-white/30 hover:bg-white/10 transition"
+                    className="px-4 py-2 text-sm rounded-lg border border-white/15 hover:border-white/40 hover:bg-white/5 transition-colors"
                   >
                     GitHub
                   </a>

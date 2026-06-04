@@ -1,82 +1,90 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCut } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+
+const navLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#techstack", label: "TechStack" },
+  { href: "#project", label: "Projects" },
+];
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  return (
-    <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className="md:hidden absolute top-4 left-4 z-105 p-2 "
-      >
-        <FontAwesomeIcon icon={faBars} className="text-[#da4b4b] text-3xl" />
-      </button>
-      <div className="">
-        <span className="text-[#da4b4b] text-3xl absolute top-4 right-4 p-1 z-40 md:hidden font-">
-          𝓟𝓸𝓻𝓽𝓯𝓸𝓵𝓲𝓸
-        </span>
-      </div>
-      {isOpen ? (
-        <div className=" fixed top-0 left-0  md:hidden  bg-opacity-80 z-110 flex items-center ">
-          <div className="bg-[#da4b4b]  p-6 rounded-md relative flex flex-col items-center ">
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-2 right-2"
-            >
-              <FontAwesomeIcon
-                icon={faCut}
-                className="text-white font-extrabold text-sm"
-              />
-            </button>
-            <h2 className="text-black  text-xl font-extrabold mb-6">
-              𝓟𝓸𝓻𝓽𝓯𝓸𝓵𝓲𝓸
-            </h2>
-            <ul className="flex flex-col items-center gap-4 font-semibold text-white">
-              <li>
-                <a href="#home">Home</a>
-              </li>
-              <li>
-                <a href="#about">About Me</a>
-              </li>
-              <li>
-                <a href="#techstack">TechStack</a>
-              </li>
-              <li>
-                <a href="#project">Projects</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      ) : null}
+  const [scrolled, setScrolled] = useState(false);
 
-      <nav className="w-full max-[763px]:hidden">
-        <div className="flex item-center justify-between bg-[#1c1b1b] p-4">
-          <div className="flex justify-around text-white items-center w-full mt-1">
-            <div className="text-white text-5xl font-bold z-[50] animate-bounce">
-              ꧁☬𝓟𝓸𝓻𝓽𝓯𝓸𝓵𝓲𝓸☬꧂
-            </div>
-            <div className="z-[50] hover:scale-110 transition-transform duration-300 animate-bounce">
-              <ul
-                className="flex justify-center
-                        items-center font-bold gap-5 text-2xl  text-red-400"
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0f0f0f]/90 backdrop-blur-md shadow-lg shadow-black/40"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <span className="text-[#cb5151] text-xl font-bold tracking-widest uppercase">
+          Portfolio
+        </span>
+
+        {/* Desktop Links */}
+        <ul className="max-md:hidden flex gap-8 text-gray-300 font-medium text-sm">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="relative group hover:text-white transition-colors duration-200"
               >
-                <li>
-                  <a href="#home">𝓗𝓸𝓶𝓮</a>
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#cb5151] group-hover:w-full transition-all duration-300 rounded-full" />
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setIsOpen((o) => !o)}
+          className="md:hidden text-[#cb5151] text-xl p-1"
+          aria-label="Toggle menu"
+        >
+          <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
+        </button>
+      </div>
+
+      {/* Mobile Dropdown */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-[#1a1a1a]/95 backdrop-blur-md border-t border-white/5 px-6 py-4"
+          >
+            <ul className="flex flex-col gap-4 text-gray-300 font-medium text-sm">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block py-1 hover:text-[#cb5151] transition-colors"
+                  >
+                    {link.label}
+                  </a>
                 </li>
-                <li>
-                  <a href="#about">𝓐𝓫𝓸𝓾𝓽 𝓜𝓮</a>
-                </li>
-                <li>
-                  <a href="#techstack">𝓣𝓮𝓬𝓱𝓼𝓽𝓪𝓬𝓴</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 }
 
