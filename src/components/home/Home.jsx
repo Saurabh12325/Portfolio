@@ -11,10 +11,11 @@ function Home() {
 
   useEffect(() => {
     let i = 0;
+    setDisplayedText("");
     const interval = setInterval(() => {
-      setDisplayedText((prev) => prev + fullText[i]);
       i++;
-      if (i === fullText.length) clearInterval(interval);
+      setDisplayedText(fullText.slice(0, i));
+      if (i >= fullText.length) clearInterval(interval);
     }, 30);
     return () => clearInterval(interval);
   }, []);
