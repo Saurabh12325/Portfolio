@@ -36,7 +36,7 @@ const socials = [
 
 function About() {
   return (
-    <section className="bg-[#111111] text-white py-20 px-6">
+    <section className="text-white py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -76,14 +76,24 @@ function About() {
             className="md:col-span-2 bg-[#1a1a1a] rounded-2xl p-6 border border-white/5 shadow-lg shadow-black/40 flex flex-col justify-between"
           >
             <div>
-              <h3 className="text-[#cb5151] text-base font-bold uppercase tracking-wider mb-5">
+              <h3 className="text-[#cb5151] text-base font-bold uppercase tracking-wider mb-4">
                 About Me
               </h3>
+
+              {/* Headline */}
+              <p className="text-white font-semibold text-sm md:text-base mb-1">
+                Full Stack Developer
+                <span className="text-gray-500 font-normal"> · </span>
+                <span className="text-[#cb5151]">Ex-Intern @MacroCosmos Creations</span>
+              </p>
+              <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-5">
+                Node.js · Spring Boot · Microservices Architecture · Distributed Systems ·
+                Systems Design &amp; Development · React.js · AWS
+              </p>
+
               <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                 I am a passionate{" "}
-                <span className="text-white font-semibold">
-                  Full Stack Developer
-                </span>{" "}
+                <span className="text-white font-semibold">Full Stack Developer</span>{" "}
                 specializing in Java and MERN stack. I enjoy building scalable
                 applications, creating modern web solutions, and implementing
                 DevOps workflows.

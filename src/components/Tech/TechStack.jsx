@@ -1,49 +1,114 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaJava, FaReact, FaNodeJs, FaDocker, FaAws } from "react-icons/fa";
+import { FaJava, FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaGithub } from "react-icons/fa";
 import {
   SiMongodb,
   SiSpringboot,
+  SiSpring,
   SiPostgresql,
   SiJavascript,
+  SiTypescript,
   SiHtml5,
   SiCss3,
   SiTailwindcss,
   SiMysql,
   SiC,
-  SiVite,
-  SiIntellijidea,
+  SiRedis,
+  SiExpress,
+  SiNginx,
+  SiPostman,
+  SiRabbitmq,
+  SiApachekafka,
+  SiGithubactions,
   SiVercel,
   SiRender,
+  SiVite,
+  SiIntellijidea,
 } from "react-icons/si";
 
-const techIcons = [
-  { icon: <FaJava className="text-[#f89820]" />, label: "Java" },
-  { icon: <SiJavascript className="text-[#f0db4f]" />, label: "JavaScript" },
-  { icon: <SiC className="text-blue-400" />, label: "C" },
-  { icon: <SiHtml5 className="text-[#e34c26]" />, label: "HTML5" },
-  { icon: <SiCss3 className="text-[#264de4]" />, label: "CSS3" },
-  { icon: <SiTailwindcss className="text-[#38bdf8]" />, label: "Tailwind" },
-  { icon: <FaReact className="text-[#61DBFB]" />, label: "React" },
-  { icon: <SiVite className="text-purple-400" />, label: "Vite" },
-  { icon: <FaNodeJs className="text-[#68A063]" />, label: "Node.js" },
-  { icon: <SiSpringboot className="text-[#6DB33F]" />, label: "Spring Boot" },
-  { icon: <SiPostgresql className="text-[#336791]" />, label: "PostgreSQL" },
-  { icon: <SiMysql className="text-[#00758F]" />, label: "MySQL" },
-  { icon: <SiMongodb className="text-[#47A248]" />, label: "MongoDB" },
-  { icon: <FaDocker className="text-[#0db7ed]" />, label: "Docker" },
-  { icon: <SiIntellijidea className="text-white" />, label: "IntelliJ" },
-  { icon: <SiVercel className="text-white" />, label: "Vercel" },
-  { icon: <SiRender className="text-[#46E3B7]" />, label: "Render" },
-  { icon: <FaAws className="text-[#FF9900]" />, label: "AWS" },
+const categories = [
+  {
+    name: "Languages",
+    techs: [
+      { icon: <FaJava />, label: "Java", color: "#f89820" },
+      { icon: <SiC />, label: "C", color: "#6b9fe4" },
+      { icon: <SiJavascript />, label: "JavaScript", color: "#f0db4f" },
+      { icon: <SiTypescript />, label: "TypeScript", color: "#3178c6" },
+    ],
+  },
+  {
+    name: "Frontend",
+    techs: [
+      { icon: <SiHtml5 />, label: "HTML", color: "#e34c26" },
+      { icon: <SiCss3 />, label: "CSS", color: "#264de4" },
+      { icon: <FaReact />, label: "React.js", color: "#61DBFB" },
+      { icon: <FaReact />, label: "React Native", color: "#61DBFB" },
+      { icon: <SiTailwindcss />, label: "Tailwind CSS", color: "#38bdf8" },
+      { icon: null, label: "Zustand", color: "#cb5151" },
+      { icon: null, label: "TanStack Query", color: "#EF4444" },
+    ],
+  },
+  {
+    name: "Backend",
+    techs: [
+      { icon: <FaNodeJs />, label: "Node.js", color: "#68A063" },
+      { icon: <SiExpress />, label: "Express.js", color: "#ffffff" },
+      { icon: <SiSpringboot />, label: "Spring Boot", color: "#6DB33F" },
+      { icon: <SiSpring />, label: "Spring MVC", color: "#6DB33F" },
+      { icon: null, label: "Microservices", color: "#cb5151" },
+    ],
+  },
+  {
+    name: "Database",
+    techs: [
+      { icon: <SiPostgresql />, label: "PostgreSQL", color: "#336791" },
+      { icon: <SiMongodb />, label: "MongoDB", color: "#47A248" },
+      { icon: <SiMysql />, label: "MySQL", color: "#00758F" },
+      { icon: <SiRedis />, label: "Redis", color: "#DC382D" },
+    ],
+  },
+  {
+    name: "DevOps & Cloud",
+    techs: [
+      { icon: <FaDocker />, label: "Docker", color: "#0db7ed" },
+      { icon: <FaGitAlt />, label: "Git", color: "#F05032" },
+      { icon: <FaGithub />, label: "GitHub", color: "#ffffff" },
+      { icon: <SiGithubactions />, label: "GitHub Actions", color: "#2088FF" },
+      { icon: <FaAws />, label: "AWS", color: "#FF9900" },
+      { icon: null, label: "CI/CD", color: "#cb5151" },
+      { icon: <SiNginx />, label: "NGINX", color: "#009900" },
+      { icon: <FaAws />, label: "EC2", color: "#FF9900" },
+      { icon: <FaAws />, label: "RDS", color: "#FF9900" },
+      { icon: <FaAws />, label: "ECR", color: "#FF9900" },
+      { icon: <FaAws />, label: "ECS", color: "#FF9900" },
+      { icon: <FaAws />, label: "ALB", color: "#FF9900" },
+      { icon: <FaAws />, label: "Lambda", color: "#FF9900" },
+      { icon: <FaAws />, label: "Bastion Host", color: "#FF9900" },
+      { icon: <FaAws />, label: "ACM / SSL", color: "#FF9900" },
+      { icon: <SiVercel />, label: "Vercel", color: "#ffffff" },
+      { icon: <SiRender />, label: "Render", color: "#46E3B7" },
+    ],
+  },
+  {
+    name: "Security & Messaging",
+    techs: [
+      { icon: null, label: "JWT", color: "#cb5151" },
+      { icon: null, label: "OAuth", color: "#EB5424" },
+      { icon: null, label: "reCAPTCHA", color: "#4A90D9" },
+      { icon: null, label: "Rate Limiting", color: "#cb5151" },
+      { icon: <SiPostman />, label: "Postman", color: "#FF6C37" },
+      { icon: <SiRabbitmq />, label: "RabbitMQ", color: "#FF6600" },
+      { icon: <SiApachekafka />, label: "Kafka", color: "#ffffff" },
+      { icon: null, label: "MQTT", color: "#660066" },
+    ],
+  },
 ];
 
 const TechStack = () => {
-  const doubled = [...techIcons, ...techIcons];
-
   return (
-    <section className="bg-[#0f0f0f] py-20 px-6 overflow-hidden">
-      <div className="max-w-6xl mx-auto mb-12">
+    <section className="py-20 px-6" id="techstack">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,40 +118,69 @@ const TechStack = () => {
         >
           Tech <span className="text-[#cb5151]">Stack</span>
         </motion.h2>
-        <p className="text-gray-500 text-sm text-center mt-3">
-          Tools and technologies I work with
-        </p>
-      </div>
-
-      <div className="relative">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#0f0f0f] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#0f0f0f] to-transparent z-10 pointer-events-none" />
-
-        <motion.div
-          className="flex gap-10"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 25,
-            ease: "linear",
-          }}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-gray-500 text-sm text-center mt-3 mb-14"
         >
-          {doubled.map(({ icon, label }, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center gap-2 flex-shrink-0 group"
+          Tools and technologies I work with
+        </motion.p>
+
+        {/* Categories */}
+        <div className="flex flex-col gap-10">
+          {categories.map((cat, ci) => (
+            <motion.div
+              key={cat.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: ci * 0.08 }}
             >
-              <div className="text-4xl md:text-5xl transition-transform duration-200 group-hover:scale-110">
-                {icon}
+              {/* Category label */}
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#cb5151] shrink-0">
+                  {cat.name}
+                </span>
+                <div className="flex-1 h-px bg-white/5" />
               </div>
-              <span className="text-gray-600 text-xs group-hover:text-gray-400 transition-colors">
-                {label}
-              </span>
-            </div>
+
+              {/* Tech chips */}
+              <div className="flex flex-wrap gap-2.5">
+                {cat.techs.map(({ icon, label, color }, ti) => (
+                  <motion.div
+                    key={label}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.25, delay: ci * 0.08 + ti * 0.04 }}
+                    whileHover={{ y: -3 }}
+                    className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1a1a1a] border border-white/5 hover:border-white/15 transition-all duration-200 cursor-default group"
+                  >
+                    {icon && (
+                      <span
+                        className="text-lg transition-transform duration-200 group-hover:scale-110 shrink-0"
+                        style={{ color }}
+                      >
+                        {icon}
+                      </span>
+                    )}
+                    {!icon && (
+                      <span
+                        className="w-1.5 h-1.5 rounded-full shrink-0"
+                        style={{ backgroundColor: color }}
+                      />
+                    )}
+                    <span className="text-sm text-gray-400 group-hover:text-white transition-colors font-medium whitespace-nowrap">
+                      {label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

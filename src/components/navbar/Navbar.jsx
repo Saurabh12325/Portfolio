@@ -7,7 +7,10 @@ const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#techstack", label: "TechStack" },
+  { href: "#experience", label: "Experience" },
+  { href: "#certificates", label: "Certificates" },
   { href: "#project", label: "Projects" },
+  { href: "#contact", label: "Contact" },
 ];
 
 function Navbar() {

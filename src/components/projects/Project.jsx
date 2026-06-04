@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaNodeJs } from "react-icons/fa";
+import { SiRabbitmq, SiMongodb, SiMysql } from "react-icons/si";
 
 import quiz1 from "./quizaki.png";
 import quiz2 from "./si.png";
@@ -27,6 +29,36 @@ const projects = [
     live: "https://quizaki.vercel.app/",
     github: "https://github.com/Saurabh12325/quizaki",
     tags: ["React", "Node.js", "MongoDB"],
+  },
+  {
+    id: 3,
+    title: "SwiftRide Microservices",
+    description:
+      "A Node.js microservices-based ride booking backend with an API Gateway, User, Captain, and Ride services using MongoDB and RabbitMQ for scalable event-driven communication.",
+    images: [],
+    live: null,
+    github: "https://github.com/Saurabh12325/SwiftRide-Microservices",
+    tags: ["Node.js", "MongoDB", "RabbitMQ", "API Gateway", "Microservices"],
+    backendIcons: [
+      <FaNodeJs className="text-[#68A063]" />,
+      <SiMongodb className="text-[#47A248]" />,
+      <SiRabbitmq className="text-[#FF6600]" />,
+    ],
+  },
+  {
+    id: 4,
+    title: "Social Media Microservices",
+    description:
+      "A scalable social media backend using Node.js microservices with API Gateway, User, Post, and Media services. Features JWT auth, Redis caching, rate limiting, MySQL, RabbitMQ, and Cloudinary media storage.",
+    images: [],
+    live: null,
+    github: "https://github.com/Saurabh12325/Social-Media-Microservices",
+    tags: ["Node.js", "MySQL", "RabbitMQ", "Redis", "JWT", "Rate Limiting"],
+    backendIcons: [
+      <FaNodeJs className="text-[#68A063]" />,
+      <SiMysql className="text-[#00758F]" />,
+      <SiRabbitmq className="text-[#FF6600]" />,
+    ],
   },
 ];
 
@@ -65,7 +97,7 @@ const ImageSlider = ({ images }) => {
 
 function Project() {
   return (
-    <section className="bg-[#111111] text-white py-20 px-6">
+    <section className="text-white py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -90,9 +122,35 @@ function Project() {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="bg-[#1a1a1a] rounded-2xl overflow-hidden border border-white/5 shadow-lg shadow-black/40 hover:border-[#cb5151]/30 transition-all duration-300 hover:shadow-[#cb5151]/10 hover:shadow-xl group"
             >
-              {/* Image Slider */}
+              {/* Image / Backend placeholder */}
               <div className="overflow-hidden">
-                <ImageSlider images={project.images} />
+                {project.images && project.images.length > 0 ? (
+                  <ImageSlider images={project.images} />
+                ) : (
+                  <div className="relative h-52 bg-[#111] flex items-center justify-center overflow-hidden">
+                    {/* Grid pattern */}
+                    <div
+                      className="absolute inset-0 opacity-10"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(#cb5151 1px, transparent 1px), linear-gradient(90deg, #cb5151 1px, transparent 1px)",
+                        backgroundSize: "32px 32px",
+                      }}
+                    />
+                    <div className="relative flex flex-col items-center gap-4">
+                      <div className="flex gap-5">
+                        {project.backendIcons?.map((icon, i) => (
+                          <span key={i} className="text-4xl opacity-80">
+                            {icon}
+                          </span>
+                        ))}
+                      </div>
+                      <span className="text-[10px] uppercase tracking-widest text-[#cb5151] font-semibold border border-[#cb5151]/30 px-3 py-1 rounded-full bg-[#cb5151]/5">
+                        Backend · Microservices
+                      </span>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Content */}
@@ -117,14 +175,16 @@ function Project() {
                 </p>
 
                 <div className="flex gap-3">
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 text-sm rounded-lg bg-[#cb5151] text-white font-medium hover:bg-[#a83e3e] transition-colors"
-                  >
-                    Live Demo
-                  </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 text-sm rounded-lg bg-[#cb5151] text-white font-medium hover:bg-[#a83e3e] transition-colors"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                   <a
                     href={project.github}
                     target="_blank"

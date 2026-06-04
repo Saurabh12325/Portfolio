@@ -1,92 +1,10 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ss from "./images/ss.jpg";
 import { FiMail, FiPhone } from "react-icons/fi";
 
 const fullText =
   "Passionate full-stack developer skilled in React,Node.js, Spring Boot, MongoDB, and REST APIs. Aspiring DevOps engineer constantly exploring new technologies and cloud tools.";
-
-const NUM_STARS = 160;
-const NUM_SHOOTING = 5;
-
-function rand(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-function StarField() {
-  const stars = useMemo(() =>
-    Array.from({ length: NUM_STARS }, (_, i) => ({
-      id: i,
-      x: rand(0, 100),
-      y: rand(0, 100),
-      r: rand(0.6, 2),
-      delay: rand(0, 4),
-      duration: rand(2.5, 5),
-    })), []);
-
-  const shootingStars = useMemo(() =>
-    Array.from({ length: NUM_SHOOTING }, (_, i) => ({
-      id: i,
-      startX: rand(10, 70),
-      startY: rand(5, 40),
-      delay: i * 3.2 + rand(0, 2),
-    })), []);
-
-  return (
-    <svg
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 0 }}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {stars.map((s) => (
-        <motion.circle
-          key={s.id}
-          cx={`${s.x}%`}
-          cy={`${s.y}%`}
-          r={s.r}
-          fill="white"
-          initial={{ opacity: 0.15 }}
-          animate={{ opacity: [0.15, 0.9, 0.15] }}
-          transition={{
-            duration: s.duration,
-            delay: s.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-
-      {shootingStars.map((s) => (
-        <motion.line
-          key={`sh-${s.id}`}
-          x1={`${s.startX}%`}
-          y1={`${s.startY}%`}
-          x2={`${s.startX + 12}%`}
-          y2={`${s.startY + 6}%`}
-          stroke="white"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{
-            pathLength: [0, 1, 0],
-            opacity: [0, 0.9, 0],
-            x1: [`${s.startX}%`, `${s.startX + 20}%`],
-            y1: [`${s.startY}%`, `${s.startY + 10}%`],
-            x2: [`${s.startX + 12}%`, `${s.startX + 32}%`],
-            y2: [`${s.startY + 6}%`, `${s.startY + 16}%`],
-          }}
-          transition={{
-            duration: 1.1,
-            delay: s.delay,
-            repeat: Infinity,
-            repeatDelay: 7 + rand(0, 5),
-            ease: "easeIn",
-          }}
-        />
-      ))}
-    </svg>
-  );
-}
 
 function Home() {
   const [displayedText, setDisplayedText] = useState("");
@@ -102,10 +20,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="relative bg-[#0f0f0f] min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Starfield */}
-      <StarField />
-
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Ambient blobs */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-[#cb5151]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#cb5151]/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 pointer-events-none" />
@@ -150,7 +65,7 @@ function Home() {
             className="flex flex-col sm:flex-row gap-3 mt-8 justify-center md:justify-start"
           >
             <a
-              href="/SaurabhResumeoriginal.pdf"
+              href="https://drive.google.com/file/d/1hHjDtkjHHFyCDDu3WOwmWAPRFlLV65Px/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#cb5151] hover:bg-[#a83e3e] text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#cb5151]/30 text-sm"
