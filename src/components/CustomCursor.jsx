@@ -6,8 +6,16 @@ export default function CustomCursor() {
   const glowRef  = useRef(null);
   const [hovered, setHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(() => window.innerWidth < 1024);
 
   useEffect(() => {
+    const onResize = () => setIsSmallScreen(window.innerWidth < 1024);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
+    if (isSmallScreen) return;
     const dot  = dotRef.current;
     const ring = ringRef.current;
     const glow = glowRef.current;
@@ -66,7 +74,9 @@ export default function CustomCursor() {
       cancelAnimationFrame(rafId);
       obs.disconnect();
     };
-  }, []);
+  }, [isSmallScreen]);
+
+  if (isSmallScreen) return null;
 
   return (
     <>
