@@ -10,6 +10,7 @@ import Certificates from "./components/certificates/Certificates.jsx";
 import Contact from "./components/contact/Contact.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import StarField from "./components/StarField.jsx";
+import CustomCursor from "./components/CustomCursor.jsx";
 import { useState, useEffect } from "react";
 function App() {
   const [loading, setLoading] = useState(true);
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
       {loading ? (
         <Loader />
       ) : (

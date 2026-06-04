@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+*, *::before, *::after {
+  cursor: none !important;
+}
 
 .parent {
   background-image: url("bg.svg");
