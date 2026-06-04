@@ -18,7 +18,7 @@ const projects = [
     images: [finance1, finance2, finance3],
     live: "https://my-finance-website-g1sx.vercel.app/",
     github: "https://github.com/Saurabh12325/Myfinance",
-    tags: ["React", "Tailwind", "Framer Motion"],
+    tags: ["React", "Spring Boot", "Tailwind", "Framer Motion"],
   },
   {
     id: 2,
@@ -28,7 +28,14 @@ const projects = [
     images: [quiz1, quiz2],
     live: "https://quizaki.vercel.app/",
     github: "https://github.com/Saurabh12325/quizaki",
-    tags: ["React", "Node.js", "MongoDB"],
+    tags: [
+      "React",
+      "Spring Boot",
+      "MongoDB",
+      "Tailwind",
+      "Framer Motion",
+      "AWS",
+    ],
   },
   {
     id: 3,
