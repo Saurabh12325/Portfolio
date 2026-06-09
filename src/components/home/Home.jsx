@@ -66,7 +66,7 @@ function Home() {
             className="flex flex-col sm:flex-row gap-3 mt-8 justify-center md:justify-start"
           >
             <a
-              href="https://drive.google.com/file/d/1hHjDtkjHHFyCDDu3WOwmWAPRFlLV65Px/view?usp=sharing"
+              href="https://drive.google.com/file/d/1T5uBwmkVOx0zznWZjbVuxvosoIeUFNkO/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#cb5151] hover:bg-[#a83e3e] text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#cb5151]/30 text-sm"
