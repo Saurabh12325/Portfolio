@@ -1,13 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaNodeJs } from "react-icons/fa";
-import { SiRabbitmq, SiMongodb, SiMysql } from "react-icons/si";
+import { FaNodeJs, FaReact } from "react-icons/fa";
+import { SiRabbitmq, SiMongodb, SiMysql, SiSocketdotio } from "react-icons/si";
 
 import quiz1 from "./quizaki.png";
 import quiz2 from "./si.png";
 import finance1 from "./fi.png";
 import finance2 from "./log.png";
 import finance3 from "./sii.png";
+
+import vwatch1 from "./vwatch1.jpg";
+import vwatch2 from "./vwatch2.png";
+import vwatch3 from "./vwatch3.jpg";
+import vwatch4 from "./vwatch4.jpg";
 
 const projects = [
   {
@@ -65,6 +70,21 @@ const projects = [
       <FaNodeJs className="text-[#68A063]" />,
       <SiMysql className="text-[#00758F]" />,
       <SiRabbitmq className="text-[#FF6600]" />,
+    ],
+  },
+  {
+    id: 5,
+    title: "VWatch",
+    description:
+      "A real-time YouTube Watch Party full-stack web application allowing multiple users to watch videos synchronously. Features unique room codes, WebSockets for low-latency communication, and role-based access control (Host, Moderator, Participant) to manage room permissions.",
+    images: [vwatch1, vwatch2, vwatch3, vwatch4],
+    live: "https://vwatchlatest.vercel.app/",
+    github: "https://github.com/web3Assignment/VWatch_frontend",
+    tags: ["React.js", "Node.js", "Socket.io", "TypeScript", "AWS EC2", "AWS RDS"],
+    backendIcons: [
+      <FaReact className="text-[#61DAFB]" />,
+      <FaNodeJs className="text-[#68A063]" />,
+      <SiSocketdotio className="text-white" />,
     ],
   },
 ];
